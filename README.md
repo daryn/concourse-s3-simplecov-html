@@ -68,6 +68,6 @@ region: eu-west-2
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/firespring/hedgelog.
+Bug reports and pull requests are welcome on GitHub at https://github.com/david-christensen/concourse-s3-simplecov-html.
 
 For details on the pull request process please see our [contributing documentation](CONTRIBUTING.md)
