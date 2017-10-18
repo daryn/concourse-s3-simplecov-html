@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+dest=$1
+
+if [ -z "$dest" ]; then
+  echo "usage: $0 </full/path/to/dest>"
+  exit 1
+fi
+
+json=$(cat config.json)
+
+source "$(dirname $0)/build.sh"
+
+echo $json | docker run \
+  -i \
+  --rm \
+  -v $dest:/tmp/output \
+  davidchristensen/concourse-s3-simplecov-html \
+  /opt/resource/in /tmp/output
