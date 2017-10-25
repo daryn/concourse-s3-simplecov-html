@@ -18,6 +18,7 @@ resources:
   source:
     access_key_id: {{aws-access-key}}
     secret_access_key: {{aws-secret-key}}
+    directory: [<optional>, use to sync to a specific path of the resource instead of the default working directory]
     bucket: {{aws-bucket}}
     path: [<optional>, use to sync to a specific path of the bucket instead of root of bucket]
     options: [<optional, see note below>]

@@ -17,6 +17,7 @@ fi
 # parse incoming config data
 payload=`cat`
 bucket=$(echo "$payload" | jq -r '.source.bucket')
+directory=$(echo "$payload" | jq -r '.source.directory // ""')
 path=$(echo "$payload" | jq -r '.source.path // ""')
 options=$(echo "$payload" | jq -r '.source.options // [] | join(" ")')
 
@@ -34,8 +35,15 @@ fi
 # Export AWS_DEFAULT_REGION if set
 [ -n "$AWS_DEFAULT_REGION" ] && export AWS_DEFAULT_REGION
 
+# Sync the source directory, if directory is unset
+sync_path=$source
+if [ -n "$directory" ]; then
+  sync_path="$source/$directory"
+fi
+
 echo "Uploading to S3..."
-eval aws s3 sync $source "s3://$bucket/$path" $options
+eval aws s3 sync $sync_path "s3://$bucket/$path" $options
+aws s3 sync $(pwd) "s3://sbf-ci/donate/coverage" --no-follow-symlinks --exclude '*' --include './sbf/sbf-donate/public/coverage/*'
 echo "...done."
 
 # Output Link to Coverage Report
