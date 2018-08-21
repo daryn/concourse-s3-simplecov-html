@@ -11,7 +11,7 @@ resource_types:
 - name: <resource type name>
   type: docker-image
   source:
-    repository: davidchristensen/concourse-s3-simplecov-html
+    repository: daryn/concourse-s3-simplecov-html
 resources:
 - name: <resource name>
   type: <resource type name>
@@ -69,6 +69,6 @@ region: eu-west-2
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/david-christensen/concourse-s3-simplecov-html.
+Bug reports and pull requests are welcome on GitHub at https://github.com/daryn/concourse-s3-simplecov-html.
 
 For details on the pull request process please see our [contributing documentation](CONTRIBUTING.md)

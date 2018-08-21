@@ -17,5 +17,5 @@ echo $json | docker run \
   -i \
   --rm \
   -v $dest:/tmp/output \
-  davidchristensen/concourse-s3-simplecov-html \
+  daryn/concourse-s3-simplecov-html \
   /opt/resource/in /tmp/output

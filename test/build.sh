@@ -2,4 +2,4 @@
 
 set -e
 
-docker build -t davidchristensen/concourse-s3-simplecov-html .
+docker build -t daryn/concourse-s3-simplecov-html .
