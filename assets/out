@@ -48,7 +48,6 @@ fi
 
 echo "Uploading to S3..."
 eval aws s3 sync $sync_path "s3://$bucket/$path" $options
-aws s3 sync $(pwd) "s3://sbf-ci/donate/coverage" --no-follow-symlinks --exclude '*' --include './sbf/sbf-donate/public/coverage/*'
 echo "...done."
 
 # Output Link to Coverage Report
